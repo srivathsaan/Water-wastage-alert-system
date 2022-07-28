@@ -2,7 +2,7 @@ import paho.mqtt.client as mqtt
 import sys
 import time
 # insert at 1, 0 is the script path (or '' in REPL)
-sys.path.insert(1, '/home/kaerhikeyan/lcd')
+sys.path.insert(1, '/home/srivathsaan/lcd')
 
 import drivers
 from time import sleep
