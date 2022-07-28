@@ -104,32 +104,23 @@ void loop() {
     totalLitres += flowLitres;
     
     Serial.print("Flow rate:");
-    //delay(1000);
     Serial.print(float(flowRate));
-    //delay(1000);// Print the integer part of the variable
     Serial.print("L/min");
-    //delay(1000);
     Serial.print("\t"); 
-    //delay(1000);// Print tab space
     
     // Print the cumulative total of litres flowed since starting
     Serial.print("Output Liquid Quantity: ");
-    //delay(1000);
     Serial.print(totalMilliLitres);
-    //delay(1000);
     Serial.print("mL / ");
-    //delay(1000);
     Serial.print(totalLitres);
-    //delay(1000);
     Serial.println("L");
-    //delay(1000);
 
  
   // MQTT can only transmit strings
   String hs="Flow Rate: "+String((float)flowRate)+" % ";
   String ts="Output Liquid: "+String((float)totalMilliLitres)+" C ";
 
-  // PUBLISH to the MQTT Broker (topic = Temperature, defined at the beginning)
+  // PUBLISH to the MQTT Broker 
   if (client.publish(flow_topic, String(flowRate).c_str())) {
     Serial.println("Flow Rate sent!");
   }
@@ -142,7 +133,7 @@ void loop() {
     client.publish(flow_topic, String(flowRate).c_str());
   }
 
-  // PUBLISH to the MQTT Broker (topic = Humidity, defined at the beginning)
+  // PUBLISH to the MQTT Broker 
   if (client.publish(output_topic, String(totalMilliLitres).c_str())) {
     Serial.println("Total Millilitre sent!");
   }
